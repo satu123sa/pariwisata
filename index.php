@@ -12,20 +12,28 @@ include_once './koneksi.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="./vendor/css/bootstrap.min.css">
+    <?php
+    include_once './template/styles.php'
+    ?>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <?php
-    include_once './template/navbar.php'
-    ?>
-    <!-- Footer -->
-    <?php
-    include_once './template/footer.php'
-    ?>
+    <main style="margin-top: 90px;">
+        <!-- Navbar -->
+        <?php
+        include_once './template/navbar_admin.php'
+        ?>
+        <!-- Content -->
+        <!-- Content -->
+        <!-- Footer -->
+        <?php
+        include_once './template/footer.php'
+        ?>
+    </main>
     <!-- JS -->
-    <script src="./vendor/js/bootstrap.min.js"></script>
+    <?php
+    include_once './template/scripts.php'
+    ?>
 </body>
 
 </html>
