@@ -8,9 +8,9 @@ $result_wisata = mysqli_query(
         INNER JOIN tb_user
         ON tb_wisata.penulis = tb_user.username
         INNER JOIN tb_daerah
-        ON tb_wisata.daerah_wisata = tb_daerah.id_daerah
+        ON tb_wisata.id_daerah = tb_daerah.id_daerah
         INNER JOIN tb_kategori
-        ON tb_wisata.kategori = tb_kategori.id_kategori"
+        ON tb_wisata.id_kategori = tb_kategori.id_kategori"
 )
 ?>
 
@@ -30,7 +30,7 @@ $result_wisata = mysqli_query(
 </head>
 
 <body style="background-color: gray;">
-    <main style="margin-top: 90px;">
+    <main style="margin-top: 70px;">
 
         <!-- Navbar -->
         <?php
@@ -38,6 +38,12 @@ $result_wisata = mysqli_query(
         ?>
 
         <!-- Content -->
+        <!-- tombol -->
+        <div class="container">
+            <center>
+                <a href="tambah_wisata.php" class="btn btn-primary my-2">Tambah Wisata </a>
+            </center>
+        </div>
         <div class="row">
             <table class="table text-light container">
                 <thead class="bg-dark">
@@ -45,7 +51,7 @@ $result_wisata = mysqli_query(
                         <th>No</th>
                         <th>Nama Wisata</th>
                         <th>Lokasi Wisata</th>
-                        <th>Gbr Wisata</th>
+                        <!-- <th>Gbr Wisata</th> -->
                         <th>Daerah Wisata</th>
                         <th>Ket Wisata</th>
                         <th>Kat Wisata</th>
@@ -60,7 +66,6 @@ $result_wisata = mysqli_query(
                             <th><?= $angka++; ?>.</th>
                             <td><?= $wisata['nama_wisata']; ?></td>
                             <td><?= $wisata['lokasi_wisata']; ?></td>
-                            <td></td>
                             <td><?= $wisata['nama_daerah_wisata']; ?></td>
                             <td><?= $wisata['keterangan_wisata']; ?></td>
                             <td><?= $wisata['nama_kategori']; ?></td>

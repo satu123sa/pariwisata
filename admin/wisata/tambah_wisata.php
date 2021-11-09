@@ -6,12 +6,12 @@ if (isset($_POST['tambah'])) {
     $nama_wisata = $_POST['nama_wisata'];
     $lokasi_wisata = $_POST['lokasi_wisata'];
     $gambar_wisata = $_POST['gambar_wisata'];
-    $nama_daerah_wisata = $_POST['nama_daerah_wisata'];
+    $nama_daerah_wisata = $_POST['id_daerah'];
     $keterangan_wisata = $_POST['keterangan_wisata'];
-    $nama_kategori = $_POST['nama_kategori'];
+    $nama_kategori = $_POST['id_kategori'];
     $penulis = $_POST['penulis'];
 
-    $result_wisata = mysqli_query($conn, "INSERT INTO tb_wisata(nama_wisata,lokasi_wisata,gambar_wisata,nama_daerah_wisata,keterangan_wisata,nama_kategori,penulis) VALUES ('$nama_wisata', '$lokasi_wisata', '$gambar_wisata', '$nama_daerah_wisata', '$keterangan_wisata','$nama_kategori','$penulis')");
+    $result_wisata = mysqli_query($conn, "INSERT INTO tb_wisata(nama_wisata,lokasi_wisata,gambar_wisata,id_daerah,keterangan_wisata,id_kategori,penulis) VALUES ('$nama_wisata', '$lokasi_wisata', '$gambar_wisata', '$nama_daerah_wisata', '$keterangan_wisata','$nama_kategori','$penulis')");
 
     $cek = mysqli_affected_rows($conn);
 
@@ -69,15 +69,20 @@ if (isset($_POST['tambah'])) {
                     <label for="lokasi_wisata">Lokasi Wisata</label>
                     <textarea class="form-control" placeholder="" id="lokasi_wisata" style="height: 100px" name="lokasi_wisata"></textarea>
                 </div>
+                <!-- ket wisata -->
+                <div class="form-floating mb-3">
+                    <label for="keterangan_wisata">Keterangaan Wisata</label>
+                    <textarea class="form-control" placeholder="" id="keterangan_wisata" style="height: 100px" name="keterangan_wisata"></textarea>
+                </div>
                 <!-- daerah wisata -->
                 <div class="mb-3">
-                    <label class="form-label">Daerah Wisata</label>
-                    <select class="form-control" aria-label="Default select example" name="daerah_wisata">
+                    <label class="form-label">Daerah</label>
+                    <select class="form-control" aria-label="Default select example" name="id_daerah">
                         <option selected>Pilih Daerah..</option>
                         <?php
-                        $result_daerah = mysqli_query($conn, "SELECT * FROM tb_wisata INNER JOIN tb_daerah ON tb_wisata.daerah_wisata = tb_daerah.id_daerah");
-                        while ($daerah = mysqli_fetch_assoc($result_daerah)) : ?>
-                            <option value="<?= $daerah['daerah_wisata']; ?>"><?= $daerah['nama_daerah_wisata']; ?></option>
+                        $result = mysqli_query($conn, "SELECT * FROM tb_daerah");
+                        while ($daerah = mysqli_fetch_assoc($result)) : ?>
+                            <option value="<?= $daerah['id_daerah']; ?>"><?= $daerah['nama_daerah_wisata']; ?></option>
                         <?php endwhile; ?>
                     </select>
                 </div>
@@ -87,26 +92,27 @@ if (isset($_POST['tambah'])) {
                     <select class="form-control" aria-label="Default select example" name="penulis">
                         <option selected>Penulis..</option>
                         <?php
-                        $result_penulis = mysqli_query($conn, "SELECT * FROM tb_wisata INNER JOIN tb_user ON tb_wisata.penulis = tb_user.username");
+                        $result_penulis = mysqli_query($conn, "SELECT * FROM tb_user");
                         while ($penulis = mysqli_fetch_assoc($result_penulis)) : ?>
-                            <option value="<?= $penulis['penulis']; ?>"><?= $penulis['username']; ?></option>
+                            <option value="<?= $penulis['username']; ?>"><?= $penulis['username']; ?></option>
                         <?php endwhile; ?>
                     </select>
                 </div>
                 <!-- kategori wisata -->
                 <div class="mb-3">
                     <label class="form-label">Kategori</label>
-                    <select class="form-control" aria-label="Default select example" name="nama_kategori">
+                    <select class="form-control" aria-label="Default select example" name="id_kategori">
                         <option selected>kategori..</option>
                         <?php
-                        $result_kategori = mysqli_query($conn, "SELECT * FROM tb_wisata INNER JOIN tb_kategori ON tb_wisata.kategori = tb_kategori.id_kategori");
-                        while ($kategori = mysqli_fetch_assoc($result_kategori)) : ?>
-                            <option value="<?= $kategori['kategori']; ?>"><?= $kategori['nama_kategori']; ?></option>
+                        $result = mysqli_query($conn, "SELECT * FROM tb_kategori");
+                        while ($daerah = mysqli_fetch_assoc($result)) : ?>
+                            <option value="<?= $daerah['id_kategori']; ?>"><?= $daerah['nama_kategori']; ?></option>
                         <?php endwhile; ?>
                     </select>
                 </div>
-
-                <button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
+                <center>
+                    <button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
+                </center>
             </form>
         </div>
         <!-- Content -->

@@ -1,44 +1,26 @@
 <?php
 include_once '../../koneksi.php';
 
-// mengambil id melalui url
-$id_kategori = $_GET['id'];
-
-// query data untuk memasukkan ke input
-$query = "SELECT * FROM tb_kategori WHERE id_kategori = '$id_kategori'";
-
-$result = mysqli_query($conn, $query);
-
-$kategori = mysqli_fetch_assoc($result);
-
 // cek tombol tambah di tekan
-if (isset($_POST['ubah'])) {
+if (isset($_POST['tambah'])) {
     $nama_kategori = $_POST['nama_kategori'];
 
-    $query = "UPDATE tb_kategori
-                SET
-            id_kategori = '$id_kategori',
-            nama_kategori = '$nama_kategori'
-                WHERE
-            id_kategori = '$id_kategori'
-        ";
-
-    $result = mysqli_query($conn, $query);
+    $result_kategori = mysqli_query($conn, "INSERT INTO tb_kategori(nama_kategori) VALUES ('$nama_kategori')");
 
     $cek = mysqli_affected_rows($conn);
 
     if ($cek > 0) {
         echo "
             <script>
-                alert('Data berhasil di ubah');
+                alert('Data berhasil di tambahkan');
                 window.location.href = 'index.php';
             </script>
         ";
     } else {
         echo "
             <script>
-                alert('Data gagal di ubah');
-                window.location.href = 'edit_kategori.php';
+                alert('Data gagal di tambahkan');
+                window.location.href = 'tambah_kategori.php';
             </script>
         ";
     }
@@ -53,7 +35,7 @@ if (isset($_POST['ubah'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Kategori</title>
+    <title>Tambah Kategori</title>
     <!-- CSS -->
     <?php
     include_once '../../template/styles.php'
@@ -71,14 +53,13 @@ if (isset($_POST['ubah'])) {
         <!-- Content -->
         <div class="container">
             <form action="" method="post" class="my-4">
-                <!-- nama kategori -->
+                <!-- nama wisata -->
                 <div class="mb-3">
                     <label for="nama_kategori" class="form-label">Nama Kategori</label>
-                    <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" value="<?= $kategori['nama_kategori']; ?>">
+                    <input type="text" class="form-control" id="nama_kategori" name="nama_kategori">
                 </div>
-
                 <center>
-                    <button type="submit" class="btn btn-primary" name="ubah">Perbaharui</button>
+                    <button type="submit" class="btn btn-primary" name="tambah">Tambah</button>
                 </center>
             </form>
         </div>

@@ -31,6 +31,14 @@
                         <a class="dropdown-item" href="../daerah/">Daerah Wisata</a>
                         <a class="dropdown-item" href="../daerah/tambah_daerah.php">Tambah Daerah Wisata</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Kategori
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../kategori/">Kategori</a>
+                        <a class="dropdown-item" href="../kategori/tambah_kategori.php">Tambah Kategori</a>
+                </li>
             </ul>
         </div>
     </div>
