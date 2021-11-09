@@ -89,19 +89,24 @@ if (isset($_POST['ubah'])) {
                     <input type="text" class="form-control" id="nama_wisata" name="nama_wisata" value="<?= $wisata['nama_wisata']; ?>">
                 </div>
                 <!-- lokasi wisata -->
-                <div class="form-floating mb-3">
-                    <label for="lokasi_wisata">Lokasi Wisata</label>
+                <div class="mb-3">
+                    <label for="lokasi_wisata" class="form-label">Lokasi Wisata</label>
                     <textarea class="form-control" placeholder="" id="lokasi_wisata" style="height: 100px" name="lokasi_wisata"><?= $wisata['lokasi_wisata']; ?></textarea>
                 </div>
+                <!-- nama wisata -->
+                <div class="mb-3">
+                    <label for="gambar_wisata" class="form-label">Gambar Wisata</label>
+                    <input type="text" class="form-control" id="gambar_wisata" name="gambar_wisata" value="<?= $wisata['gambar_wisata']; ?>">
+                </div>
                 <!-- ket wisata -->
-                <div class="form-floating mb-3">
-                    <label for="keterangan_wisata">Keterangaan Wisata</label>
+                <div class="mb-3">
+                    <label for="keterangan_wisata" class="form-label">Keterangaan Wisata</label>
                     <textarea class="form-control" placeholder="" id="keterangan_wisata" style="height: 100px" name="keterangan_wisata"><?= $wisata['keterangan_wisata']; ?></textarea>
                 </div>
                 <!-- daerah wisata -->
                 <div class="mb-3">
                     <label class="form-label">Mapel</label>
-                    <select class="form-control" aria-label="Default select example" name="id_daerah">
+                    <select class="form-select" aria-label="Default select example" name="id_daerah">
                         <?php
                         $result_daerah = mysqli_query($conn, "SELECT * FROM tb_daerah");
                         while ($daerah = mysqli_fetch_assoc($result_daerah)) : ?>
@@ -116,7 +121,7 @@ if (isset($_POST['ubah'])) {
                 <!-- penulis wisata -->
                 <div class="mb-3">
                     <label class="form-label">Penulis</label>
-                    <select class="form-control" aria-label="Default select example" name="penulis">
+                    <select class="form-select" aria-label="Default select example" name="penulis">
                         <?php
                         $result_penulis = mysqli_query($conn, "SELECT * FROM tb_user");
                         while ($penulis = mysqli_fetch_assoc($result_penulis)) : ?>
@@ -131,7 +136,7 @@ if (isset($_POST['ubah'])) {
                 <!-- kategori wisata -->
                 <div class="mb-3">
                     <label class="form-label">Kategori</label>
-                    <select class="form-control" aria-label="Default select example" name="id_kategori">
+                    <select class="form-select" aria-label="Default select example" name="id_kategori">
                         <?php
                         $result_kategori = mysqli_query($conn, "SELECT * FROM tb_kategori");
                         while ($kategori = mysqli_fetch_assoc($result_kategori)) : ?>

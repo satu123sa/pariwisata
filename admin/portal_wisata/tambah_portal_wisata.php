@@ -5,11 +5,11 @@ include_once '../../koneksi.php';
 if (isset($_POST['tambah'])) {
     $id_wisata = $_POST['id_wisata'];
     $ket_wisata = $_POST['ket_wisata'];
-    $gambar_portal_wisata = $_POST['gambar_portal_wisata'];
+    $gambar = $_POST['gambar'];
     $published = $_POST['published'];
     $updated = $_POST['updated'];
 
-    $result_wisata = mysqli_query($conn, "INSERT INTO tb_portal_wisata(id_wisata,published,gambar_portal_wisata,ket_wisata,updated) VALUES ('$id_wisata', '$published', '$gambar_portal_wisata', '$ket_wisata','$updated')");
+    $result_wisata = mysqli_query($conn, "INSERT INTO tb_portal_wisata(id_wisata,published,ket_wisata,gambar,updated) VALUES ('$id_wisata', '$published', '$ket_wisata','$gambar','$updated')");
 
     $cek = mysqli_affected_rows($conn);
 
@@ -60,7 +60,7 @@ if (isset($_POST['tambah'])) {
                 <!-- id wisata -->
                 <div class="mb-3">
                     <label class="form-label">Wisata</label>
-                    <select class="form-control" aria-label="Default select example" name="id_wisata">
+                    <select class="form-select" aria-label="Default select example" name="id_wisata">
                         <option selected>Pilih Wisata..</option>
                         <?php
                         $result_wisata = mysqli_query($conn, "SELECT * FROM tb_wisata");
@@ -69,9 +69,14 @@ if (isset($_POST['tambah'])) {
                         <?php endwhile; ?>
                     </select>
                 </div>
+                <!-- nama wisata -->
+                <div class="mb-3">
+                    <label for="gambar" class="form-label">Gambar</label>
+                    <input type="text" class="form-control" id="gambar" name="gambar">
+                </div>
                 <!-- ket wisata -->
-                <div class="form-floating mb-3">
-                    <label for="ket_wisata">Keterangaan Wisata</label>
+                <div class="mb-3">
+                    <label for="ket_wisata" class="form-label">Keterangaan Wisata</label>
                     <textarea class="form-control" placeholder="" id="ket_wisata" style="height: 100px" name="ket_wisata"></textarea>
                 </div>
                 <!-- publis -->

@@ -51,7 +51,7 @@ $result_wisata = mysqli_query(
                         <th>No</th>
                         <th>Nama Wisata</th>
                         <th>Lokasi Wisata</th>
-                        <!-- <th>Gbr Wisata</th> -->
+                        <th>Gbr Wisata</th>
                         <th>Daerah Wisata</th>
                         <th>Ket Wisata</th>
                         <th>Kat Wisata</th>
@@ -66,6 +66,7 @@ $result_wisata = mysqli_query(
                             <th><?= $angka++; ?>.</th>
                             <td><?= $wisata['nama_wisata']; ?></td>
                             <td><?= $wisata['lokasi_wisata']; ?></td>
+                            <td><img style="width: 150px;" src="../../media/<?= $wisata['gambar_wisata']; ?>" alt=""></td>
                             <td><?= $wisata['nama_daerah_wisata']; ?></td>
                             <td><?= $wisata['keterangan_wisata']; ?></td>
                             <td><?= $wisata['nama_kategori']; ?></td>

@@ -15,16 +15,16 @@ $portal = mysqli_fetch_assoc($result);
 if (isset($_POST['ubah'])) {
     $id_wisata = $_POST['id_wisata'];
     $ket_wisata = $_POST['ket_wisata'];
-    $gambar_portal_wisata = $_POST['gambar_portal_wisata'];
+    $gambar = $_POST['gambar'];
     $published = $_POST['published'];
     $updated = $_POST['updated'];
 
-    $query = "UPDATE tb_wisata
+    $query = "UPDATE tb_portal_wisata
                 SET
             id_portal = '$id_portal',
             id_wisata = '$id_wisata',
             ket_wisata = '$ket_wisata',
-            gambar_portal_wisata = '$gambar_portal_wisata',
+            gambar = '$gambar',
             published = '$published',
             updated = '$updated'
                 WHERE
@@ -61,7 +61,7 @@ if (isset($_POST['ubah'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Portal Wisata</title>
+    <title>Tambah Portal Wisata</title>
     <!-- CSS -->
     <?php
     include_once '../../template/styles.php'
@@ -82,7 +82,7 @@ if (isset($_POST['ubah'])) {
                 <!-- id wisata -->
                 <div class="mb-3">
                     <label class="form-label">Wisata</label>
-                    <select class="form-control" aria-label="Default select example" name="id_wisata">
+                    <select class="form-select" aria-label="Default select example" name="id_wisata">
                         <?php
                         $result_wisata = mysqli_query($conn, "SELECT * FROM tb_wisata");
                         while ($wisata = mysqli_fetch_assoc($result_wisata)) : ?>
@@ -94,9 +94,14 @@ if (isset($_POST['ubah'])) {
                         <?php endwhile; ?>
                     </select>
                 </div>
+                <!-- nama wisata -->
+                <div class="mb-3">
+                    <label for="gambar" class="form-label">Nama Wisata</label>
+                    <input type="text" class="form-control" id="gambar" name="gambar" value="<?= $portal['gambar']; ?>">
+                </div>
                 <!-- ket wisata -->
-                <div class="form-floating mb-3">
-                    <label for="ket_wisata">Keterangaan Wisata</label>
+                <div class="mb-3">
+                    <label for="ket_wisata" class="mb-2">Keterangaan Wisata</label>
                     <textarea class="form-control" placeholder="" id="ket_wisata" style="height: 100px" name="ket_wisata"><?= $portal['ket_wisata']; ?></textarea>
                 </div>
                 <!-- publis -->
@@ -107,11 +112,11 @@ if (isset($_POST['ubah'])) {
                 <!-- update -->
                 <div class="mb-3">
                     <label for="updated" class="form-label">Update</label>
-                    <input type="date" class="form-control" id="updated" name="updated" value="<?= $portal['updated']; ?>">
+                    <input type="date" class="form-control" id="updated" name="updated" value="<?= $portal['published']; ?>">
                 </div>
 
                 <center>
-                    <button type="submit" class="btn btn-primary" name="ubah">Perbaharui</button>
+                    <button type="submit" class="btn btn-primary" name="ubah">Tambah</button>
                 </center>
             </form>
         </div>

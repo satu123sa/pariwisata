@@ -65,13 +65,18 @@ if (isset($_POST['tambah'])) {
                     <input type="text" class="form-control" id="nama_wisata" name="nama_wisata">
                 </div>
                 <!-- lokasi wisata -->
-                <div class="form-floating mb-3">
-                    <label for="lokasi_wisata">Lokasi Wisata</label>
+                <div class="mb-3">
+                    <label for="lokasi_wisata" class="form-label">Lokasi Wisata</label>
                     <textarea class="form-control" placeholder="" id="lokasi_wisata" style="height: 100px" name="lokasi_wisata"></textarea>
                 </div>
+                <!-- nama wisata -->
+                <div class="mb-3">
+                    <label for="gambar_wisata" class="form-label">Gambar Wisata</label>
+                    <input type="text" class="form-control" id="gambar_wisata" name="gambar_wisata">
+                </div>
                 <!-- ket wisata -->
-                <div class="form-floating mb-3">
-                    <label for="keterangan_wisata">Keterangaan Wisata</label>
+                <div class="mb-3">
+                    <label for="keterangan_wisata" class="form-label">Keterangaan Wisata</label>
                     <textarea class="form-control" placeholder="" id="keterangan_wisata" style="height: 100px" name="keterangan_wisata"></textarea>
                 </div>
                 <!-- daerah wisata -->

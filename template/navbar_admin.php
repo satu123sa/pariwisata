@@ -56,6 +56,7 @@
                         <li><a class="dropdown-item" href="../berita/tambah_berita.php">Tambah Berita</a>
                     </ul>
                 </li>
+                <a href="logout.php" class="btn btn-outline-danger" type="button">Logout</a>
             </ul>
         </div>
     </div>

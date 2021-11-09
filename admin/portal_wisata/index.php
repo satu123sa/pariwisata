@@ -47,7 +47,7 @@ $result_portal_wisata = mysqli_query(
                         <th>No</th>
                         <th>Nama Wisata</th>
                         <th>Ket Wisata</th>
-                        <!-- <th>Gbr Wisata</th> -->
+                        <th>Gbr Wisata</th>
                         <th>Published</th>
                         <th>Updated</th>
                         <th>Edit</th>
@@ -60,6 +60,7 @@ $result_portal_wisata = mysqli_query(
                             <th><?= $angka++; ?>.</th>
                             <td><?= $portal_wisata['nama_wisata']; ?></td>
                             <td><?= $portal_wisata['ket_wisata']; ?></td>
+                            <td><img style="width: 150px;" src="../../media/<?= $portal_wisata['gambar']; ?>" alt=""></td>
                             <td><?= $portal_wisata['published']; ?></td>
                             <td><?= $portal_wisata['updated']; ?></td>
                             <td>
