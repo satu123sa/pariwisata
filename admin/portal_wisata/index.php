@@ -26,7 +26,7 @@ $result_portal_wisata = mysqli_query(
 </head>
 
 <body style="background-color: gray;">
-    <main style="margin-top: 70px;">
+    <main style="margin-top: 80px;">
 
         <!-- Navbar -->
         <?php
@@ -35,13 +35,13 @@ $result_portal_wisata = mysqli_query(
 
         <!-- Content -->
         <!-- tombol -->
-        <div class="container">
+        <div class="container-fluid">
             <center>
-                <a href="tambah_portal_wisata.php" class="btn btn-primary my-2">Tambah Portal Wisata </a>
+                <a href="tambah_portal_wisata.php" class="btn btn-primary d-block my-2">Tambah Portal Wisata </a>
             </center>
         </div>
-        <div class="row">
-            <table class="table text-light container">
+        <div class="container-fluid">
+            <table class="table text-light">
                 <thead class="bg-dark">
                     <tr class="text-center">
                         <th>No</th>

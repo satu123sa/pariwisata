@@ -24,7 +24,7 @@ $result_kategori = mysqli_query(
 </head>
 
 <body style="background-color: gray;">
-    <main style="margin-top: 70px;">
+    <main style="margin-top: 80px;">
 
         <!-- Navbar -->
         <?php
@@ -33,13 +33,13 @@ $result_kategori = mysqli_query(
 
         <!-- Content -->
         <!-- tombol -->
-        <div class="container">
+        <div class="container-fluid">
             <center>
-                <a href="tambah_kategori.php" class="btn btn-primary my-2">Tambah Kategori </a>
+                <a href="tambah_kategori.php" class="btn btn-primary d-block my-2">Tambah Kategori </a>
             </center>
         </div>
-        <div class="row">
-            <table class="table text-light container">
+        <div class="container-fluid">
+            <table class="table text-light">
                 <thead class="bg-dark">
                     <tr class="text-center">
                         <th>No</th>

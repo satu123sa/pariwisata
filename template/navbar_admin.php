@@ -1,43 +1,60 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="">Pariwisata</a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="ml-auto">
-            <ul class="navbar-nav mr-auto">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Pariwisata</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <!--  -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Wisata
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../wisata/">Wisata</a>
-                        <a class="dropdown-item" href="../wisata/tambah_wisata.php">Tambah Wisata</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="../wisata/">Wisata</a>
+                        <li><a class="dropdown-item" href="../wisata/tambah_wisata.php">Tambah Wisata</a>
+                    </ul>
                 </li>
+                <!--  -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Portal Pariwisata
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../portal_wisata/">Portal Wisata</a>
-                        <a class="dropdown-item" href="../portal_wisata/tambah_portal_wisata.php">Tambah Portal Wisata</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="../portal_wisata/">Portal Pariwisata</a>
+                        <li><a class="dropdown-item" href="../portal_wisata/tambah_portal_wisata.php">Tambah Portal Pariwisata</a>
+                    </ul>
                 </li>
+                <!--  -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                        Daerah Wisata
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Daerah
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../daerah/">Daerah Wisata</a>
-                        <a class="dropdown-item" href="../daerah/tambah_daerah.php">Tambah Daerah Wisata</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="../daerah/">Daerah</a>
+                        <li><a class="dropdown-item" href="../daerah/tambah_daerah.php">Tambah Daerah</a>
+                    </ul>
                 </li>
+                <!--  -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Kategori
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../kategori/">Kategori</a>
-                        <a class="dropdown-item" href="../kategori/tambah_kategori.php">Tambah Kategori</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="../kategori/">Kategori</a>
+                        <li><a class="dropdown-item" href="../kategori/tambah_kategori.php">Tambah Kategori</a>
+                    </ul>
+                </li>
+                <!--  -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Berita
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="../berita/">Berita</a>
+                        <li><a class="dropdown-item" href="../berita/tambah_berita.php">Tambah Berita</a>
+                    </ul>
                 </li>
             </ul>
         </div>

@@ -77,7 +77,7 @@ if (isset($_POST['tambah'])) {
                 <!-- daerah wisata -->
                 <div class="mb-3">
                     <label class="form-label">Daerah</label>
-                    <select class="form-control" aria-label="Default select example" name="id_daerah">
+                    <select class="form-select" aria-label="Default select example" name="id_daerah">
                         <option selected>Pilih Daerah..</option>
                         <?php
                         $result = mysqli_query($conn, "SELECT * FROM tb_daerah");
@@ -89,7 +89,7 @@ if (isset($_POST['tambah'])) {
                 <!-- penulis wisata -->
                 <div class="mb-3">
                     <label class="form-label">Penulis</label>
-                    <select class="form-control" aria-label="Default select example" name="penulis">
+                    <select class="form-select" aria-label="Default select example" name="penulis">
                         <option selected>Penulis..</option>
                         <?php
                         $result_penulis = mysqli_query($conn, "SELECT * FROM tb_user");
@@ -101,7 +101,7 @@ if (isset($_POST['tambah'])) {
                 <!-- kategori wisata -->
                 <div class="mb-3">
                     <label class="form-label">Kategori</label>
-                    <select class="form-control" aria-label="Default select example" name="id_kategori">
+                    <select class="form-select" aria-label="Default select example" name="id_kategori">
                         <option selected>kategori..</option>
                         <?php
                         $result = mysqli_query($conn, "SELECT * FROM tb_kategori");
