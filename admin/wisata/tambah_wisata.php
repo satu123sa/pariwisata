@@ -5,13 +5,18 @@ include_once '../../koneksi.php';
 if (isset($_POST['tambah'])) {
     $nama_wisata = $_POST['nama_wisata'];
     $lokasi_wisata = $_POST['lokasi_wisata'];
-    $gambar_wisata = $_POST['gambar_wisata'];
+    // $gambar_wisata = $_POST['gambar_wisata'];
     $nama_daerah_wisata = $_POST['id_daerah'];
     $keterangan_wisata = $_POST['keterangan_wisata'];
     $nama_kategori = $_POST['id_kategori'];
     $penulis = $_POST['penulis'];
 
-    $result_wisata = mysqli_query($conn, "INSERT INTO tb_wisata(nama_wisata,lokasi_wisata,gambar_wisata,id_daerah,keterangan_wisata,id_kategori,penulis) VALUES ('$nama_wisata', '$lokasi_wisata', '$gambar_wisata', '$nama_daerah_wisata', '$keterangan_wisata','$nama_kategori','$penulis')");
+    $image = $_FILES['gambar_wisata']['name'];
+    $file_tmp = $_FILES['gambar_wisata']['tmp_name'];
+
+    move_uploaded_file($file_tmp, '../../media/' . $image);
+
+    $result_wisata = mysqli_query($conn, "INSERT INTO tb_wisata(nama_wisata,lokasi_wisata,gambar_wisata,id_daerah,keterangan_wisata,id_kategori,penulis) VALUES ('$nama_wisata', '$lokasi_wisata', '$image', '$nama_daerah_wisata', '$keterangan_wisata','$nama_kategori','$penulis')");
 
     $cek = mysqli_affected_rows($conn);
 
@@ -58,7 +63,7 @@ if (isset($_POST['tambah'])) {
 
         <!-- Content -->
         <div class="container">
-            <form action="" method="post" class="my-4">
+            <form action="" method="post" class="my-4" enctype="multipart/form-data">
                 <!-- nama wisata -->
                 <div class="mb-3">
                     <label for="nama_wisata" class="form-label">Nama Wisata</label>
@@ -72,7 +77,7 @@ if (isset($_POST['tambah'])) {
                 <!-- nama wisata -->
                 <div class="mb-3">
                     <label for="gambar_wisata" class="form-label">Gambar Wisata</label>
-                    <input type="text" class="form-control" id="gambar_wisata" name="gambar_wisata">
+                    <input type="file" class="form-control" id="gambar_wisata" name="gambar_wisata">
                 </div>
                 <!-- ket wisata -->
                 <div class="mb-3">

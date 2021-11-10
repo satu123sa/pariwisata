@@ -5,11 +5,16 @@ include_once '../../koneksi.php';
 if (isset($_POST['tambah'])) {
     $id_wisata = $_POST['id_wisata'];
     $ket_wisata = $_POST['ket_wisata'];
-    $gambar = $_POST['gambar'];
+    // $gambar = $_POST['gambar'];
     $published = $_POST['published'];
     $updated = $_POST['updated'];
 
-    $result_wisata = mysqli_query($conn, "INSERT INTO tb_portal_wisata(id_wisata,published,ket_wisata,gambar,updated) VALUES ('$id_wisata', '$published', '$ket_wisata','$gambar','$updated')");
+    $image = $_FILES['gambar']['name'];
+    $file_tmp = $_FILES['gambar']['tmp_name'];
+
+    move_uploaded_file($file_tmp, '../../media/' . $image);
+
+    $result_wisata = mysqli_query($conn, "INSERT INTO tb_portal_wisata(id_wisata,published,ket_wisata,gambar,updated) VALUES ('$id_wisata', '$published', '$ket_wisata','$image','$updated')");
 
     $cek = mysqli_affected_rows($conn);
 
@@ -56,7 +61,7 @@ if (isset($_POST['tambah'])) {
 
         <!-- Content -->
         <div class="container">
-            <form action="" method="post" class="my-4">
+            <form action="" method="post" class="my-4" enctype="multipart/form-data">
                 <!-- id wisata -->
                 <div class="mb-3">
                     <label class="form-label">Wisata</label>
@@ -72,7 +77,7 @@ if (isset($_POST['tambah'])) {
                 <!-- nama wisata -->
                 <div class="mb-3">
                     <label for="gambar" class="form-label">Gambar</label>
-                    <input type="text" class="form-control" id="gambar" name="gambar">
+                    <input type="file" class="form-control" id="gambar" name="gambar">
                 </div>
                 <!-- ket wisata -->
                 <div class="mb-3">

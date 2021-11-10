@@ -2,7 +2,8 @@
 
 session_start();
 
-include_once '../../koneksi.php';
+// koneksi
+$conn = mysqli_connect('localhost', 'root', '', 'db_pariwisata');
 
 // query
 $result = mysqli_query($conn, "SELECT * FROM tb_user");
@@ -27,9 +28,9 @@ if (isset($_POST['login'])) {
         $_SESSION['usrname'] = $username;
         $_SESSION['role'] = $role;
         if ($role == 'admin') {
-            header("location:index.php");
+            header("location:/pariwisata/admin/home");
         } else if ($role == 'user') {
-            header("location:user/home.php");
+            header("location:/pariwisata/admin/home");
         }
     } else {
         echo "
@@ -54,17 +55,12 @@ if (isset($_POST['login'])) {
     <title>Login</title>
     <!-- CSS -->
     <?php
-    include_once '../../template/styles.php'
+    include_once './template/styles.php'
     ?>
 </head>
 
 <body style="background-color: gray;">
     <main style="margin-top: 80px;">
-
-        <!-- Navbar -->
-        <?php
-        include_once '../../template/navbar_admin.php'
-        ?>
 
         <!-- Content -->
         <!-- Login Admin -->
@@ -78,19 +74,22 @@ if (isset($_POST['login'])) {
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-primary" name="login" value="login">Login</button>
+
+                <center>
+                    <button type="submit" class="btn btn-primary" name="login" value="login">Login</button>
+                </center>
             </form>
         </div>
         <!-- Content -->
 
         <!-- Footer -->
         <?php
-        include_once '../../template/footer.php'
+        include_once './template/footer.php'
         ?>
     </main>
     <!-- JS -->
     <?php
-    include_once '../../template/scripts.php'
+    include_once './template/scripts.php'
     ?>
 </body>
 

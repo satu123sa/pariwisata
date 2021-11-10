@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">Pariwisata</a>
+        <a class="navbar-brand" href="../home/">Pariwisata</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -56,7 +56,7 @@
                         <li><a class="dropdown-item" href="../berita/tambah_berita.php">Tambah Berita</a>
                     </ul>
                 </li>
-                <a href="logout.php" class="btn btn-outline-danger" type="button">Logout</a>
+                <a href="../../logout.php" class="btn btn-outline-danger" type="button">Logout</a>
             </ul>
         </div>
     </div>
